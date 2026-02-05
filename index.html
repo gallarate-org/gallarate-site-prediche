@@ -224,7 +224,7 @@
         const a = document.createElement("a");
         a.href = f.url;
         a.target = "_blank";  // Apre in nuova scheda per scaricare
-        a.innerText = `${f.folder} - ${f.file}`;
+        a.innerText = `${f.folder}/${f.file}`;
 
         li.appendChild(icon);
         li.appendChild(a);
