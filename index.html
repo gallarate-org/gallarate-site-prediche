@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <title>Archivio Uploads</title>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
   <style>
     body {
       font-family: Arial, Helvetica, sans-serif;
@@ -103,7 +105,7 @@
       align-items: center;
     }
 
-    .files img {
+    .files i {
       width: 20px;
       height: 20px;
       margin-right: 10px;
@@ -186,20 +188,45 @@
       const list = document.getElementById("fileList");
       list.innerHTML = "";
 
+      // Mappa estensioni a icone FontAwesome
+      const iconMap = {
+        'pdf': 'fas fa-file-pdf',
+        'doc': 'fas fa-file-word',
+        'docx': 'fas fa-file-word',
+        'xls': 'fas fa-file-excel',
+        'xlsx': 'fas fa-file-excel',
+        'ppt': 'fas fa-file-powerpoint',
+        'pptx': 'fas fa-file-powerpoint',
+        'txt': 'fas fa-file-alt',
+        'jpg': 'fas fa-file-image',
+        'jpeg': 'fas fa-file-image',
+        'png': 'fas fa-file-image',
+        'gif': 'fas fa-file-image',
+        'mp3': 'fas fa-file-audio',
+        'mp4': 'fas fa-file-video',
+        'zip': 'fas fa-file-archive',
+        'rar': 'fas fa-file-archive'
+      };
+
       files.forEach(f => {
         const li = document.createElement("li");
 
-        // Icona GIF stile documento (base64 per un'icona semplice)
-        const img = document.createElement("img");
-        img.src = "data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQC2dW5HoqeqmRtKA+LKD9RrfdhKVXiRZI0tq7/uLXzBJ7iQIA8E0BSCrXhQVsApMzPD+3NVTHA2HQGD2b+zB/AA8B8Ag0JYwAQAh+QQACgABACwAAAAAEAAQAAAUZCAgJiEAOw==";  // Icona documento semplice
-        img.alt = "Documento";
+        // Estrae estensione dal nome file
+        const ext = f.file.split('.').pop().toLowerCase();
+        const iconClass = iconMap[ext] || 'fas fa-file';  // Icona generica se non trovata
+
+        // Icona documento basata sull'estensione
+        const icon = document.createElement("i");
+        icon.className = iconClass;
+        icon.style.marginRight = "10px";
+        icon.style.color = "#555";
 
         const a = document.createElement("a");
         a.href = f.url;
         a.target = "_blank";  // Apre in nuova scheda per scaricare
         a.innerText = `${f.folder} - ${f.file}`;
 
-        li.appendChild(img);
+        li.appendChild(icon);
         li.appendChild(a);
         list.appendChild(li);
       });
