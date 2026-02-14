@@ -138,7 +138,52 @@
       text-decoration: underline;
     }
 
+    header {
+      background: #2a2a3a;
+      padding: 14px 14px;
+      display: flex;
+      align-items: center;
+      border-bottom: 2px solid #5a5a7a;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .church-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
     @media (max-width: 600px) {
+      header {
+        padding: 15px 20px;
+      }
+
+      .logo {
+        width: 40px;
+        height: 40px;
+        margin-right: 15px;
+      }
+
+      .church-title {
+        font-size: 16px;
+      }
+
       .container {
         margin: 20px auto;
         padding: 20px;
@@ -157,6 +202,12 @@
 </head>
 
 <body>
+
+  <header>
+    <div class="logo">
+      <img src="images/logo-gallarate.jpg" alt="Logo Chiesa Gallarate" />
+    </div>
+  </header>
 
   <div class="container">
     <h1>Accesso prediche di gallarate</h1>
