@@ -18,7 +18,7 @@
   </header>
 
   <div class="container">
-    <h1>Accesso prediche di gallarate</h1>
+    <h1><img src="images/spotify-logo.png" alt="Spotify" style="height: 50px; vertical-align: middle; margin-right: 15px;"> Team Spotify Gallarate</h1>
 
     <div class="login-section" id="loginSection">
       <label>Username</label>
@@ -33,15 +33,42 @@
     </div>
 
     <div class="files" id="files">
-      <h2>Cartella uploads</h2>
-      <p class="subtitle">Qua sotto trovi i 3 caricamenti più recenti</p>
-      <ul id="fileList"></ul>
+      <!-- Navigation tabs -->
+      <div class="tabs">
+        <button class="tab-button active" onclick="showTab('files')">Lista File</button>
+        <button class="tab-button" onclick="showTab('instructions')">Istruzioni</button>
+      </div>
+
+      <!-- Files content -->
+      <div class="tab-content" id="files-content">
+        <h2>Cartella uploads</h2>
+        <p class="subtitle">Qua sotto trovi i 3 caricamenti più recenti</p>
+        <ul id="fileList"></ul>
+      </div>
+
+      <!-- Instructions content -->
+      <div class="tab-content hidden" id="instructions-content">
+        <h2>Benvenuto nella team Spotify di Gallarate! 🚀</h2>
+        <p>In questa sezione troverai tutte le informazioni per impostare il caricamento delle prediche su spotify</p>
+        <div class="instructions-content">
+          <h3>Squadra Mixer - Registrazione su chiavetta</h3>
+          <p>Al momento la squadra mixer è attrezzata per inviare la predicazione come live su Youtube.</p> 
+          <p>A questo aggiungeremo una pubblicazione della predica su Spotify la domenica pomeriggio o il lunedì. Effettuiamo la registrazione della predica su chiavetta direttamente dal mixer, da far partire e farmeare insieme alla live di Youtube.</p>
+          
+          <h3>Link utili:</h3>
+          <ul>
+            <li><a href="#" target="_blank">Sito web della parrocchia</a></li>
+            <li><a href="#" target="_blank">Contatti</a></li>
+            <li><a href="#" target="_blank">Calendario eventi</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 
   <script>
-    // const API_URL = "https://9ceha3vzh5.execute-api.eu-south-1.amazonaws.com/link";
-    const API_URL = "http://localhost:8093/link";
+    const API_URL = "https://9ceha3vzh5.execute-api.eu-south-1.amazonaws.com/link";
+    //const API_URL = "http://localhost:8093/link";
 
     async function login() {
       document.getElementById("error").innerText = "";
@@ -76,9 +103,17 @@
     function showFiles(files) {
       // Nasconde la sezione login
       document.getElementById("loginSection").classList.add("hidden");
-      // Mostra la sezione files
+      // Mostra la sezione files (con i tabs)
       document.getElementById("files").classList.add("show");
 
+      // Popola la lista dei file
+      populateFileList(files);
+      
+      // Assicurati che la tab "files" sia attiva di default
+      showTab('files');
+    }
+
+    function populateFileList(files) {
       const list = document.getElementById("fileList");
       list.innerHTML = "";
 
@@ -124,6 +159,28 @@
         li.appendChild(a);
         list.appendChild(li);
       });
+    }
+
+    function showTab(tabName) {
+      // Rimuovi la classe active da tutti i bottoni
+      const tabButtons = document.querySelectorAll('.tab-button');
+      tabButtons.forEach(button => button.classList.remove('active'));
+      
+      // Rimuovi la classe active da tutti i contenuti
+      const tabContents = document.querySelectorAll('.tab-content');
+      tabContents.forEach(content => content.classList.add('hidden'));
+      
+      // Attiva il bottone selezionato
+      const selectedButton = document.querySelector(`[onclick="showTab('${tabName}')"]`);
+      if (selectedButton) {
+        selectedButton.classList.add('active');
+      }
+      
+      // Mostra il contenuto selezionato
+      const selectedContent = document.getElementById(`${tabName}-content`);
+      if (selectedContent) {
+        selectedContent.classList.remove('hidden');
+      }
     }
   </script>
 
