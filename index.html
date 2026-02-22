@@ -49,7 +49,7 @@
         <!-- Instructions content -->
         <div class="tab-content hidden" id="instructions-content">
           <h2>Benvenuto nel Team Spotify di Gallarate! 🚀</h2>
-          <p>In questa sezione troverai tutte le informazioni per impostare il caricamento delle prediche su spotify</p>
+          <p>In questa sezione troverai tutte le informazioni per impostare il caricamento delle prediche su spotify!</p>
           <div class="instructions-content">
             <h3>Squadra Mixer 🎚️ - Caricamento predica su gallarate-org</h3>
             <p>Al momento la squadra mixer è attrezzata per inviare la predicazione come live su Youtube.
@@ -71,21 +71,28 @@
             <a href="https://creators.spotify.com/pod/login" class="clickable-link">
               <img src="images/spotify-logo.png" alt="" style="height:18px;vertical-align:middle;margin-right:4px">Spotify for Creators</a> con l'account della chiesa, e seleziona lo show "Parola dal pulpito | AdiGallarate" per caricare un nuovo episodio.
             </p>
-            <p>Per l'episodio scarica qui sotto:</p>
+            <p>Per caricare l'episodio su spotify scarica / visualizza qui sotto:</p>
             <ul class="download-list">
               <li><a href="images/Logo Parola dal pulpito AdiGallarate.png" download="Logo Parola dal pulpito AdiGallarate.png" class="clickable-link">Logo per thumbnail episodio</a>
               </li>
-              <li><a href="files/Template descrizione episodio.txt" download="Template descrizione episodio.txt" class="clickable-link">Template per descrizione episodio</a>
+              <li><a href="https://docs.google.com/document/d/1RFvf3zSsMr5hTALQYGIGCGjVpr_pgqMpLjdpDoXd9FU/edit?usp=drivesdk"  class="clickable-link">Template di NotebookLM per generazione riassunto dell'episodio</a>
               </li>
             </ul>
+            <h3>Squadra Spotify 🎧 - Utilizzo di NotebookLM per riassunto episodio</h3>
+            <p>Per generare un riassunto dell'episodio da inserire nella descrizione su Spotify, puoi usare il template di 
+              <a href="https://notebooklm.google.com/" class="clickable-link"><img src="https://notebooklm.google.com/_/static/branding/v5/dark_mode/icon.svg" alt="" style="height:18px;vertical-align:middle;margin-right:4px">NotebookLM</a>
+              che trovi qui sopra.
+            <br>Il template è già preimpostato con le istruzioni per generare un riassunto ottimizzato per Spotify, che evidenzia i punti chiave della predica e include eventuali riferimenti biblici.</p>
+            <p>Carica l'audio della predica e il template come fonti, e con le due fonti fai una domanda del tipo "Mi fai un riassunto della predica audio sfruttando il template?".
+            <br>Le modifiche da fare al generato dovrebbero essere minime, giusto la fluidità tra una frase e l'altra può essere migliorata manualmente. In caso di problemi o di proposte di miglioramento facci sapere!</p>
           </div>
         </div>
       </div>
     </div>
 
     <script>
-      const API_URL = "https://9ceha3vzh5.execute-api.eu-south-1.amazonaws.com/link";
-      // const API_URL = "http://localhost:8093/link";
+      // const API_URL = "https://9ceha3vzh5.execute-api.eu-south-1.amazonaws.com/link";
+      const API_URL = "http://localhost:8093/link";
 
       async function login() {
         document.getElementById("error").innerText = "";
