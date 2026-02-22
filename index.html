@@ -1,188 +1,266 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gallarate-archivio-prediche</title>
+  <!DOCTYPE html>
+  <html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gallarate-archivio-prediche</title>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
-</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+  </head>
 
-<body>
+  <body>
 
-  <header>
-    <div class="logo">
-      <img src="images/logo-gallarate.jpg" alt="Logo Chiesa Gallarate" />
-    </div>
-  </header>
+    <header>
+      <div class="logo">
+        <img src="images/logo-gallarate.jpg" alt="Logo Chiesa Gallarate" />
+      </div>
+    </header>
 
-  <div class="container">
-    <h1><img src="images/spotify-logo.png" alt="Spotify" style="height: 50px; vertical-align: middle; margin-right: 15px;"> Team Spotify Gallarate</h1>
+    <div class="container">
+      <h1><img src="images/spotify-logo.png" alt="Spotify" style="height: 50px; vertical-align: middle; margin-right: 15px;"> Team Spotify Gallarate</h1>
 
-    <div class="login-section" id="loginSection">
-      <label>Username</label>
-      <input type="text" id="username" spellcheck="false" />
+      <div class="login-section" id="loginSection">
+        <label>Username</label>
+        <input type="text" id="username" spellcheck="false" />
 
-      <label>Password</label>
-      <input type="password" id="password" spellcheck="false" />
+        <label>Password</label>
+        <input type="password" id="password" spellcheck="false" />
 
-      <button onclick="login()">Accedi</button>
+        <button onclick="login()">Accedi</button>
 
-      <div class="error" id="error"></div>
-    </div>
-
-    <div class="files" id="files">
-      <!-- Navigation tabs -->
-      <div class="tabs">
-        <button class="tab-button active" onclick="showTab('files')">Lista File</button>
-        <button class="tab-button" onclick="showTab('instructions')">Istruzioni</button>
+        <div class="error" id="error"></div>
       </div>
 
-      <!-- Files content -->
-      <div class="tab-content" id="files-content">
-        <h2>Cartella uploads</h2>
-        <p class="subtitle">Qua sotto trovi i 3 caricamenti più recenti</p>
-        <ul id="fileList"></ul>
-      </div>
+      <div class="files" id="files">
+        <!-- Navigation tabs -->
+        <div class="tabs">
+          <button class="tab-button active" onclick="showTab('files')">Audio Prediche</button>
+          <button class="tab-button" onclick="showTab('instructions')">Istruzioni</button>
+        </div>
 
-      <!-- Instructions content -->
-      <div class="tab-content hidden" id="instructions-content">
-        <h2>Benvenuto nella team Spotify di Gallarate! 🚀</h2>
-        <p>In questa sezione troverai tutte le informazioni per impostare il caricamento delle prediche su spotify</p>
-        <div class="instructions-content">
-          <h3>Squadra Mixer - Registrazione su chiavetta</h3>
-          <p>Al momento la squadra mixer è attrezzata per inviare la predicazione come live su Youtube.</p> 
-          <p>A questo aggiungeremo una pubblicazione della predica su Spotify la domenica pomeriggio o il lunedì. Effettuiamo la registrazione della predica su chiavetta direttamente dal mixer, da far partire e farmeare insieme alla live di Youtube.</p>
-          
-          <h3>Link utili:</h3>
-          <ul>
-            <li><a href="#" target="_blank">Sito web della parrocchia</a></li>
-            <li><a href="#" target="_blank">Contatti</a></li>
-            <li><a href="#" target="_blank">Calendario eventi</a></li>
-          </ul>
+        <!-- Files content -->
+        <div class="tab-content" id="files-content">
+          <h2>Cartella uploads</h2>
+          <p class="subtitle">Qua sotto trovi i 3 caricamenti più recenti</p>
+          <ul id="fileList"></ul>
+        </div>
+
+        <!-- Instructions content -->
+        <div class="tab-content hidden" id="instructions-content">
+          <h2>Benvenuto nel Team Spotify di Gallarate! 🚀</h2>
+          <p>In questa sezione troverai tutte le informazioni per impostare il caricamento delle prediche su spotify</p>
+          <div class="instructions-content">
+            <h3>Squadra Mixer 🎚️ - Caricamento predica su gallarate-org</h3>
+            <p>Al momento la squadra mixer è attrezzata per inviare la predicazione come live su Youtube.
+            <br>Effettuiamo la registrazione della predica su chiavetta direttamente dal mixer, da far partire e fermare insieme alla live di Youtube.</p>
+            <p>A fine culto inserisci la chiavetta nel pc sulla destra del mixer, apri la cartella 📁 upload-prediche sul desktop e fai doppio click sull'eseguibile <strong>gallarate_usb_to_s3</strong>.
+            <br>Nella stessa cartella controlla sul file <strong>main.log</strong> le fasi di avanzamento (conversione WAV - MP3, caricamento in cloud) fino a che viene scritta una riga di testo simile a "Script completato".
+            <br>Il file è quindi disponibile nella sezione "Audio Prediche" di questo sito.</p>
+            <h3>Squadra Spotify 🎧 - Caricamento episodio su canale Spotify</h3>
+            <p>Il team Spotify si occupa di caricare gli episodi sul canale Spotify della chiesa, con il logo e un riassunto della predica.</p>
+            <p>Come prima cosa scarichiamo l'adio dell'ultima predica dalla sezione "Audio Prediche" di questo sito, e verifichiamo che non ci sia una parte iniziale / finale dell'audio non necessaria (es. problemi tecnici di audio iniziali, testimonianze personali non legati all'inizio della predica, altro). 
+            <br>Puoi usare tool di editing audio gratuiti come per esempio 
+            <a href="https://www.audacityteam.org/" class="clickable-link">
+              <img src="https://www.audacityteam.org/_astro/Audacity_Logo.DK8H7nvr.svg" alt="" style="height:18px;vertical-align:middle;margin-right:4px">
+              Audacity
+            </a>.
+            </p>
+
+            <p>Per caricare l'episodio accedi a 
+            <a href="https://creators.spotify.com/pod/login" class="clickable-link">
+              <img src="images/spotify-logo.png" alt="" style="height:18px;vertical-align:middle;margin-right:4px">Spotify for Creators</a> con l'account della chiesa, e seleziona lo show "Parola dal pulpito | AdiGallarate" per caricare un nuovo episodio.
+            </p>
+            <p>Per l'episodio scarica qui sotto:</p>
+            <ul class="download-list">
+              <li><a href="images/Logo Parola dal pulpito AdiGallarate.png" download="Logo Parola dal pulpito AdiGallarate.png" class="clickable-link">Logo per thumbnail episodio</a>
+              </li>
+              <li><a href="files/Template descrizione episodio.txt" download="Template descrizione episodio.txt" class="clickable-link">Template per descrizione episodio</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <script>
-    const API_URL = "https://9ceha3vzh5.execute-api.eu-south-1.amazonaws.com/link";
-    //const API_URL = "http://localhost:8093/link";
+    <script>
+      const API_URL = "https://9ceha3vzh5.execute-api.eu-south-1.amazonaws.com/link";
+      // const API_URL = "http://localhost:8093/link";
 
-    async function login() {
-      document.getElementById("error").innerText = "";
+      async function login() {
+        document.getElementById("error").innerText = "";
 
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
 
-      try {
-        console.log("Invio richiesta a:", API_URL);  // Log aggiunto
-        const res = await fetch(API_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ username, password })
-        });
+        try {
+          console.log("Invio richiesta a:", API_URL);  // Log aggiunto
+          const res = await fetch(API_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, password })
+          });
 
-        console.log("Status risposta:", res.status, res.statusText);  // Log aggiunto
+          console.log("Status risposta:", res.status, res.statusText);  // Log aggiunto
 
-        if (!res.ok) {
-          throw new Error(`Errore HTTP ${res.status}: ${res.statusText}`);
+          if (!res.ok) {
+            throw new Error(`Errore HTTP ${res.status}: ${res.statusText}`);
+          }
+
+          const data = await res.json();
+          console.log("Dati ricevuti:", data);  // Log aggiunto
+          showFiles(data.files);
+
+        } catch (err) {
+          console.error("Errore fetch controlliamo che è successo:", err);  // Log dettagliato aggiunto
+          document.getElementById("error").innerText = err.message;
         }
-
-        const data = await res.json();
-        console.log("Dati ricevuti:", data);  // Log aggiunto
-        showFiles(data.files);
-
-      } catch (err) {
-        console.error("Errore fetch controlliamo che è successo:", err);  // Log dettagliato aggiunto
-        document.getElementById("error").innerText = err.message;
       }
-    }
 
-    function showFiles(files) {
-      // Nasconde la sezione login
-      document.getElementById("loginSection").classList.add("hidden");
-      // Mostra la sezione files (con i tabs)
-      document.getElementById("files").classList.add("show");
+      function showFiles(files) {
+        // Nasconde la sezione login
+        document.getElementById("loginSection").classList.add("hidden");
+        // Mostra la sezione files (con i tabs)
+        document.getElementById("files").classList.add("show");
 
-      // Popola la lista dei file
-      populateFileList(files);
-      
-      // Assicurati che la tab "files" sia attiva di default
-      showTab('files');
-    }
+        // Popola la lista dei file
+        populateFileList(files);
+        
+        // Assicurati che la tab "files" sia attiva di default
+        showTab('files');
+      }
 
-    function populateFileList(files) {
-      const list = document.getElementById("fileList");
-      list.innerHTML = "";
+      function populateFileList(files) {
+        const list = document.getElementById("fileList");
+        list.innerHTML = "";
 
-      // Mappa estensioni a icone FontAwesome
-      const iconMap = {
-        'pdf': 'fas fa-file-pdf',
-        'doc': 'fas fa-file-word',
-        'docx': 'fas fa-file-word',
-        'xls': 'fas fa-file-excel',
-        'xlsx': 'fas fa-file-excel',
-        'ppt': 'fas fa-file-powerpoint',
-        'pptx': 'fas fa-file-powerpoint',
-        'txt': 'fas fa-file-alt',
-        'jpg': 'fas fa-file-image',
-        'jpeg': 'fas fa-file-image',
-        'png': 'fas fa-file-image',
-        'gif': 'fas fa-file-image',
-        'mp3': 'fas fa-file-audio',
-        'mp4': 'fas fa-file-video',
-        'zip': 'fas fa-file-archive',
-        'rar': 'fas fa-file-archive'
-      };
+        // Mappa estensioni a icone FontAwesome
+        const iconMap = {
+          'pdf': 'fas fa-file-pdf',
+          'doc': 'fas fa-file-word',
+          'docx': 'fas fa-file-word',
+          'xls': 'fas fa-file-excel',
+          'xlsx': 'fas fa-file-excel',
+          'ppt': 'fas fa-file-powerpoint',
+          'pptx': 'fas fa-file-powerpoint',
+          'txt': 'fas fa-file-alt',
+          'jpg': 'fas fa-file-image',
+          'jpeg': 'fas fa-file-image',
+          'png': 'fas fa-file-image',
+          'gif': 'fas fa-file-image',
+          'mp3': 'fas fa-file-audio',
+          'mp4': 'fas fa-file-video',
+          'zip': 'fas fa-file-archive',
+          'rar': 'fas fa-file-archive'
+        };
 
-      files.forEach(f => {
-        const li = document.createElement("li");
+        files.forEach(f => {
+          const li = document.createElement("li");
 
-        // Estrae estensione dal nome file
-        const ext = f.file.split('.').pop().toLowerCase();
-        const iconClass = iconMap[ext] || 'fas fa-file';  // Icona generica se non trovata
+          // Estrae estensione dal nome file
+          const ext = f.file.split('.').pop().toLowerCase();
+          const iconClass = iconMap[ext] || 'fas fa-file';  // Icona generica se non trovata
 
-        // Icona documento basata sull'estensione
-        const icon = document.createElement("i");
-        icon.className = iconClass;
-        icon.style.marginRight = "10px";
-        icon.style.color = "#4a4a5a";
+          // Icona documento basata sull'estensione
+          const icon = document.createElement("i");
+          icon.className = iconClass;
+          icon.style.marginRight = "10px";
+          icon.style.color = "#4a4a5a";
 
-        const a = document.createElement("a");
-        a.href = f.url;
-        a.target = "_blank";  // Apre in nuova scheda per scaricare
-        a.innerText = `${f.folder}/${f.file}`;
+          const a = document.createElement("a");
+          a.href = f.url;
+          a.target = "_blank";  // Apre in nuova scheda per scaricare
+          a.innerText = `${f.folder}/${f.file}`;
 
-        li.appendChild(icon);
-        li.appendChild(a);
-        list.appendChild(li);
+          li.appendChild(icon);
+          li.appendChild(a);
+          list.appendChild(li);
+        });
+      }
+
+      function showTab(tabName) {
+        // Rimuovi la classe active da tutti i bottoni
+        const tabButtons = document.querySelectorAll('.tab-button');
+        tabButtons.forEach(button => button.classList.remove('active'));
+        
+        // Rimuovi la classe active da tutti i contenuti
+        const tabContents = document.querySelectorAll('.tab-content');
+        tabContents.forEach(content => content.classList.add('hidden'));
+        
+        // Attiva il bottone selezionato
+        const selectedButton = document.querySelector(`[onclick="showTab('${tabName}')"]`);
+        if (selectedButton) {
+          selectedButton.classList.add('active');
+        }
+        
+        // Mostra il contenuto selezionato
+        const selectedContent = document.getElementById(`${tabName}-content`);
+        if (selectedContent) {
+          selectedContent.classList.remove('hidden');
+        }
+      }
+
+      // Generic downloader: for anchors with class "clickable-link" decide whether to
+      // force-download the resource (same-origin or relative links) using fetch->blob.
+      function downloadResource(url, filename) {
+        return fetch(url)
+          .then(res => {
+            if (!res.ok) throw new Error('Network response was not ok');
+            return res.blob();
+          })
+          .then(blob => {
+            const a = document.createElement('a');
+            const objectUrl = URL.createObjectURL(blob);
+            a.href = objectUrl;
+            a.download = filename || '';
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            setTimeout(() => URL.revokeObjectURL(objectUrl), 10000);
+          });
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        const links = document.querySelectorAll('a.clickable-link');
+        links.forEach(link => {
+          link.addEventListener('click', function(e) {
+            const href = link.getAttribute('href');
+            if (!href) return; // nothing to do
+
+            // If user explicitly opted out via data-no-download, do nothing
+            if (link.dataset.noDownload === 'true') return;
+
+            // Determine absolute URL and whether it's same-origin
+            try {
+              const abs = new URL(href, location.href);
+              const isSameOrigin = abs.origin === location.origin;
+
+              // If link has download attribute or is same-origin/relative, force download
+              const wantsDownload = link.hasAttribute('download') || isSameOrigin || !/^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(href);
+
+              if (wantsDownload) {
+                e.preventDefault();
+
+                // filename priority: data-filename, download attribute, last path segment
+                let filename = link.dataset.filename || link.getAttribute('download');
+                if (!filename) {
+                  const parts = abs.pathname.split('/');
+                  filename = parts.pop() || 'download';
+                }
+
+                downloadResource(abs.href, filename).catch(() => {
+                  // fallback: navigate to URL
+                  window.location.href = abs.href;
+                });
+              }
+              // else: external link, let it navigate normally
+            } catch (err) {
+              // If URL construction fails, don't block navigation
+            }
+          });
+        });
       });
-    }
+    </script>
 
-    function showTab(tabName) {
-      // Rimuovi la classe active da tutti i bottoni
-      const tabButtons = document.querySelectorAll('.tab-button');
-      tabButtons.forEach(button => button.classList.remove('active'));
-      
-      // Rimuovi la classe active da tutti i contenuti
-      const tabContents = document.querySelectorAll('.tab-content');
-      tabContents.forEach(content => content.classList.add('hidden'));
-      
-      // Attiva il bottone selezionato
-      const selectedButton = document.querySelector(`[onclick="showTab('${tabName}')"]`);
-      if (selectedButton) {
-        selectedButton.classList.add('active');
-      }
-      
-      // Mostra il contenuto selezionato
-      const selectedContent = document.getElementById(`${tabName}-content`);
-      if (selectedContent) {
-        selectedContent.classList.remove('hidden');
-      }
-    }
-  </script>
-
-</body>
-</html>
+  </body>
+  </html>

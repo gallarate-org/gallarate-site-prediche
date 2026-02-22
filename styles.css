@@ -6,6 +6,25 @@ body {
   color: #e0e6ff;
 }
 
+.clickable-link{
+  display: inline-block;         /* piccolo rettangolo, non occupa tutta la riga */
+  padding: 6px 10px;             /* spazio interno controllato */
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 1;
+  transition: background .12s, color .12s, transform .06s;
+}
+.clickable-link:hover{
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
+}
+.clickable-link:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.18); /* focus visibile ma senza aggiungere spazio */
+}
+
 .container {
   max-width: 420px;
   margin: 80px auto;
