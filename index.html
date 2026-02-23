@@ -52,14 +52,13 @@
           <p>In questa sezione troverai tutte le informazioni per impostare il caricamento delle prediche su spotify!</p>
           <div class="instructions-content">
             <h3>Squadra Mixer 🎚️ - Caricamento predica su gallarate-org</h3>
-            <p>Al momento la squadra mixer è attrezzata per inviare la predicazione come live su Youtube.
-            <br>Effettuiamo la registrazione della predica su chiavetta direttamente dal mixer, da far partire e fermare insieme alla live di Youtube.</p>
+            <p>Al momento la squadra mixer è attrezzata per inviare la predicazione come live su Youtube. A questo aggiungiamo la registrazione della predica su chiavetta direttamente dal mixer, da far partire e fermare insieme alla live di Youtube.</p>
             <p>A fine culto inserisci la chiavetta nel pc sulla destra del mixer, apri la cartella 📁 upload-prediche sul desktop e fai doppio click sull'eseguibile <strong>gallarate_usb_to_s3</strong>.
-            <br>Nella stessa cartella controlla sul file <strong>main.log</strong> le fasi di avanzamento (conversione WAV - MP3, caricamento in cloud) fino a che viene scritta una riga di testo simile a "Script completato".
+            <br>Nella stessa cartella controlla sul file <strong>main.log</strong> le fasi di avanzamento (conversione WAV - MP3, caricamento in cloud) fino a che viene stampata una riga di testo simile a "Script completato".
             <br>Il file è quindi disponibile nella sezione "Audio Prediche" di questo sito.</p>
             <h3>Squadra Spotify 🎧 - Caricamento episodio su canale Spotify</h3>
-            <p>Il team Spotify si occupa di caricare gli episodi sul canale Spotify della chiesa, con il logo e un riassunto della predica.</p>
-            <p>Come prima cosa scarichiamo l'adio dell'ultima predica dalla sezione "Audio Prediche" di questo sito, e verifichiamo che non ci sia una parte iniziale / finale dell'audio non necessaria (es. problemi tecnici di audio iniziali, testimonianze personali non legati all'inizio della predica, altro). 
+            <p>Il team Spotify si occuperà di creare dopo ognli culto un nuovo episodio sullo show <strong>Parola dal pulpito | AdiGallarate</strong> del canale spotify della chiesa, con un logo e un riassunto della predica.</p>
+            <p>Trovi l'audio dell'ultima predica nella sezione "Audio Prediche" di questo sito. Prima di tutto verifica che non ci siano parti iniziali / finali dell'audio non collegate alla predica (es. problemi tecnici di audio iniziali, testimonianze personali non legate all'inizio della predica, altro). 
             <br>Puoi usare tool di editing audio gratuiti come per esempio 
             <a href="https://www.audacityteam.org/" class="clickable-link">
               <img src="https://www.audacityteam.org/_astro/Audacity_Logo.DK8H7nvr.svg" alt="" style="height:18px;vertical-align:middle;margin-right:4px">
@@ -67,22 +66,24 @@
             </a>.
             </p>
 
-            <p>Per caricare l'episodio accedi a 
+            <p>Per creare il nuovo episodio accedi a 
             <a href="https://creators.spotify.com/pod/login" class="clickable-link">
-              <img src="images/spotify-logo.png" alt="" style="height:18px;vertical-align:middle;margin-right:4px">Spotify for Creators</a> con l'account della chiesa, e seleziona lo show "Parola dal pulpito | AdiGallarate" per caricare un nuovo episodio.
+              <img src="images/spotify-logo.png" alt="" style="height:18px;vertical-align:middle;margin-right:4px">Spotify for Creators</a> con l'account della chiesa che ti è stato fornito, e seleziona lo show <strong>Parola dal pulpito | AdiGallarate</strong> per caricare un nuovo episodio.
             </p>
-            <p>Per caricare l'episodio su spotify scarica / visualizza qui sotto:</p>
+            <p>Alcuni link utili per la creazione dell'episodio:</p>
             <ul class="download-list">
-              <li><a href="images/Logo Parola dal pulpito AdiGallarate.png" download="Logo Parola dal pulpito AdiGallarate.png" class="clickable-link">Logo per thumbnail episodio</a>
+              <li><a href="images/Logo Parola dal pulpito AdiGallarate.png" download="Logo Parola dal pulpito AdiGallarate.png" class="clickable-link">Logo per thumbnail</a>
               </li>
               <li><a href="https://docs.google.com/document/d/1RFvf3zSsMr5hTALQYGIGCGjVpr_pgqMpLjdpDoXd9FU/edit?usp=drivesdk"  class="clickable-link">Template di NotebookLM per generazione riassunto dell'episodio</a>
               </li>
             </ul>
+            <h4>Titolo dell'episodio</h4>
+            <p>La squadra mixer dovrebbe già aver scelto un titolo per la live Youtube.</p>
             <h3>Squadra Spotify 🎧 - Utilizzo di NotebookLM per riassunto episodio</h3>
             <p>Per generare un riassunto dell'episodio da inserire nella descrizione su Spotify, puoi usare  
               <a href="https://notebooklm.google.com/" class="clickable-link"><img src="https://notebooklm.google.com/_/static/branding/v5/dark_mode/icon.svg" alt="" style="height:18px;vertical-align:middle;margin-right:4px">NotebookLM</a>.
-            <br>Per sintetizzare l'audio puoi usare il template sopra, già preimpostato con le istruzioni per generare un riassunto ottimizzato per Spotify, che evidenzia i punti chiave della predica e include eventuali riferimenti biblici.</p>
-            <p>Carica l'audio della predica e il template come fonti, e con le due fonti fai una domanda del tipo "Mi fai un riassunto della predica audio sfruttando il template?".
+            <br>Puoi usare il template del paragrafo sopra, che è già impostato con le istruzioni per generare un riassunto ottimizzato per Spotify, evidenziando punti chiave della predica e includendo eventuali riferimenti biblici.</p>
+            <p>Carica l'audio della predica e il template come fonti all'interno di un notebook, e con le due fonti fai una domanda in chat del tipo "Mi fai un riassunto della predica audio sfruttando il template?".
             <br>Le modifiche da fare al generato dovrebbero essere minime, giusto la fluidità tra una frase e l'altra può essere migliorata manualmente. In caso di problemi o di proposte di miglioramento facci sapere!</p>
             <h3>Siamo pronti...Leeet's gooo!! 🚀</h3>
           </div>
