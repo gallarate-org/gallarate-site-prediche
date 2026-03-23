@@ -56,34 +56,46 @@
             <p>A fine culto inserisci la chiavetta nel pc sulla destra del mixer, apri la cartella 📁 <strong>upload-prediche</strong> sul desktop e fai doppio click sull'eseguibile <strong>gallarate_usb_to_s3</strong>.
             <br>Nella stessa cartella controlla sul file <strong>main.log</strong> le fasi di avanzamento (conversione WAV - MP3, caricamento in cloud) fino a che viene stampata una riga di testo simile a "Script completato".
             <br>Il file è quindi disponibile nella sezione "Audio Prediche" di questo sito.</p>
-            <h3>Squadra Spotify 🎧 - Caricamento episodio su canale Spotify</h3>
-            <p>Il team Spotify si occuperà di creare dopo ognli culto un nuovo episodio sullo show <strong>Parola dal pulpito | AdiGallarate</strong> del canale spotify della chiesa, con un logo e un riassunto della predica.</p>
-            <p>Trovi l'audio dell'ultima predica nella sezione "Audio Prediche" di questo sito. Prima di tutto verifica che non ci siano parti iniziali / finali dell'audio non collegate alla predica (es. problemi tecnici di audio iniziali, testimonianze personali non legate all'inizio della predica, altro). 
-            <br>Puoi usare tool di editing audio gratuiti come per esempio 
+            <h3>Squadra Spotify 🎧 - Scaricamento audio + editing</h3>
+            <p>Il team Spotify si occuperà di scaricare l'audio della predica, editarlo e caricarlo su Spotify. Trovi l'audio dell'ultima predica nella sezione "Audio Prediche" di questo sito. 
+            <p>Per modificare l'audio prima della pubblicazione, usa un tool di editing audio gratuito e semplice come  
             <a href="https://www.audacityteam.org/" class="clickable-link">
               <img src="https://www.audacityteam.org/_astro/Audacity_Logo.DK8H7nvr.svg" alt="" style="height:18px;vertical-align:middle;margin-right:4px">
               Audacity
             </a>.
+            <br>Prima di tutto verifica che non ci siano parti iniziali / finali dell'audio non collegate alla predica (es. problemi tecnici di audio iniziali, testimonianze personali non legate all'inizio della predica, altro).
+            <br>Poi inserisci all'inizio e alla fine della predica dei jingle, non appena li abbiamo definiti.
+            <br>Infine fai la <strong>normalizzazione</strong> dell'audio per garantire un livello di volume uniforme. In Audacity puoi farlo selezionando tutto l'audio (CTRL+A) e poi andando su Effetti -> Volume e compressione -> Normalizza.
+            <br>L'impostazione seguente va bene
+            <p><img src="images/audacity-normalize.png" alt="Impostazione normalizzazione in Audacity" style="max-width:100%;height:auto;border-radius:8px">
             </p>
-
+            <p>Infine esporta l'audio in formato MP3 (File -> Esporta -> Esporta come MP3).
+            <h3>Squadra Spotify 🎧 - Caricamento episodio su canale Spotify</h3>
+            <p>Una volta che l'audio è sistemato, ti occuperai di caricare il nuovo episodio sullo show <strong>Parola dal cielo | AdiGallarate</strong> del canale spotify della chiesa.</p>
             <p>Per creare il nuovo episodio accedi a 
             <a href="https://creators.spotify.com/pod/login" class="clickable-link">
-              <img src="images/spotify-logo.png" alt="" style="height:18px;vertical-align:middle;margin-right:4px">Spotify for Creators</a> con l'account della chiesa che ti è stato fornito, e seleziona lo show <strong>Parola dal pulpito | AdiGallarate</strong> per caricare un nuovo episodio.
+              <img src="images/spotify-logo.png" alt="" style="height:18px;vertical-align:middle;margin-right:4px">Spotify for Creators</a> 
+              con l'account della chiesa che ti è stato fornito, seleziona lo show <strong>Parola dal cielo | AdiGallarate</strong> e clicca su <strong>Nuovo episodio</strong>.
+              <p><img src="images/spotify-new-episode.png" alt="Schermata creazione nuovo episodio su Spotify" style="max-width:100%;height:auto;border-radius:8px">
+            </p>
+            <p>Si apre una schermata dove caricare l'audio, una volta selezionato l'audio si apre 
+              il form dei dettagli dell'episodio, dove inserire titolo e il descrizione.
+            <p><img src="images/spotify-episode-details.png" alt="Schermata inserimento dettagli episodio su Spotify" style="max-width:100%;height:auto;border-radius:8px">
+            <p>Come titolo inseriamo il titolo della live Youtube di quel giorno, un trattino e nome e cognome del predicatore (es. Pioggia di primavera - Franco Spina).  
             </p>
             <p>Alcuni link utili per la creazione dell'episodio:</p>
             <ul class="download-list">
-              <li><a href="images/Logo Parola dal pulpito AdiGallarate.png" download="Logo Parola dal pulpito AdiGallarate.png" class="clickable-link">Logo per thumbnail</a>
-              </li>
               <li><a href="https://docs.google.com/document/d/1RFvf3zSsMr5hTALQYGIGCGjVpr_pgqMpLjdpDoXd9FU/edit?usp=drivesdk"  class="clickable-link">Template di NotebookLM per generazione riassunto dell'episodio</a>
               </li>
             </ul>
-            <h4>Titolo dell'episodio</h4>
-            <p>La squadra mixer dovrebbe già aver scelto un titolo per la live Youtube.</p>
-            <h3>Squadra Spotify 🎧 - Utilizzo di NotebookLM per riassunto episodio</h3>
-            <p>Per generare un riassunto dell'episodio da inserire nella descrizione su Spotify, puoi usare  
-              <a href="https://notebooklm.google.com/" class="clickable-link"><img src="https://notebooklm.google.com/_/static/branding/v5/dark_mode/icon.svg" alt="" style="height:18px;vertical-align:middle;margin-right:4px">NotebookLM</a>.
-            <br>Puoi usare il template del paragrafo sopra, che è già impostato con le istruzioni per generare un riassunto ottimizzato per Spotify, evidenziando punti chiave della predica e includendo eventuali riferimenti biblici.</p>
-            <p>Carica l'audio della predica e il template come fonti all'interno di un notebook, e con le due fonti fai una domanda in chat del tipo "Mi fai un riassunto della predica audio sfruttando il template?".
+            <h3>Squadra Spotify 🎧 - Utilizzo di NotebookLM per descrizione episodio</h3>
+            <p>Per generare una descrizione dell'episodio da inserire su Spotify, puoi usare  
+              <a href="https://notebooklm.google.com/" class="clickable-link"><img src="https://notebooklm.google.com/_/static/branding/v5/dark_mode/icon.svg" alt="" style="height:18px;vertical-align:middle;margin-right:4px">NotebookLM</a>,
+              che è utile per generare del test a partire da una o più fonti.
+            <p>Qua inserisco la descrizione di come usare notebooklm con qualche screenshot.</p>
+            <br>Puoi usare il template del paragrafo a questo link <a href="https://docs.google.com/document/d/1RFvf3zSsMr5hTALQYGIGCGjVpr_pgqMpLjdpDoXd9FU/edit?usp=drivesdk" class="clickable-link">Template di NotebookLM per generazione descrizione episodio</a>
+            che è già impostato con le istruzioni per generare una descrizione ottimizzata per Spotify, evidenziando punti chiave della predica e includendo eventuali riferimenti biblici.</p>
+            <p>Carica l'audio della predica e il template come fonti all'interno di un notebook, e con le due fonti fai una domanda in chat del tipo "Mi fai una descrizione della predica audio sfruttando il template?".
             <br>Le modifiche da fare al generato dovrebbero essere minime, giusto la fluidità tra una frase e l'altra può essere migliorata manualmente. In caso di problemi o di proposte di miglioramento sul template facci sapere!</p>
             <h3>Siamo pronti...Leeet's gooo!! 🚀</h3>
           </div>
@@ -93,7 +105,7 @@
 
     <script>
       const API_URL = "https://9ceha3vzh5.execute-api.eu-south-1.amazonaws.com/link";
-      // const API_URL = "http://localhost:8093/link";
+      //const API_URL = "http://localhost:8093/link";
 
       async function login() {
         document.getElementById("error").innerText = "";
