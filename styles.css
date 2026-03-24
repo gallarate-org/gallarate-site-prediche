@@ -182,6 +182,7 @@ button:hover {
 
 .tab-content.hidden {
   display: none;
+  line-height: 1.6;
 }
 
 /* Instructions content styles */
