@@ -37,6 +37,7 @@
         <!-- Navigation tabs -->
         <div class="tabs">
           <button class="tab-button active" onclick="showTab('files')">Audio Prediche</button>
+          <button class="tab-button" onclick="showTab('intro-outro')">Intro - Outro</button>
           <button class="tab-button" onclick="showTab('instructions')">Istruzioni</button>
         </div>
 
@@ -45,6 +46,13 @@
           <h2>Cartella uploads</h2>
           <p class="subtitle">Qua sotto trovi i 3 caricamenti più recenti</p>
           <ul id="fileList"></ul>
+        </div>
+
+        <!-- Intro-outro content -->
+        <div class="tab-content hidden" id="intro-outro-content">
+          <h2>Cartella intro-outro</h2>
+          <p class="subtitle">Qua sotto trovi i jingle di apertura e chiusura per gli episodi</p>
+          <ul id="introOutroAudioList"></ul>
         </div>
 
         <!-- Instructions content -->
@@ -65,12 +73,13 @@
               Audacity
             </a>.
             <br>Prima di tutto verifica che non ci siano parti iniziali / finali dell'audio non collegate alla predica (es. problemi tecnici di audio iniziali, testimonianze personali non legate all'inizio della predica, altro).
-            <br>Poi inserisci all'inizio e alla fine della predica dei jingle, non appena li abbiamo definiti.
-            <br>Infine fai la <strong>normalizzazione</strong> dell'audio per garantire un livello di volume uniforme. In Audacity puoi farlo selezionando tutto l'audio (CTRL+A) e poi andando su Effetti -> Volume e compressione -> Normalizza.
+            <br>Poi esegui fai la <strong>normalizzazione</strong> dell'audio per garantire un livello di volume uniforme. In Audacity puoi farlo selezionando tutto l'audio (CTRL+A) e poi andando su Effetti -> Volume e compressione -> Normalizza.
             <br>L'impostazione seguente va bene
             <p><img src="images/audacity-normalize.png" alt="Impostazione normalizzazione in Audacity" style="max-width:100%;height:auto;border-radius:8px">
             </p>
-            <p>Infine esporta l'audio in formato MP3 (File -> Esporta -> Esporta come MP3).
+            <p>Poi esporta l'audio in formato MP3 (File -> Esporta -> Esporta come MP3).
+            <p>Una volta fatto questo, riapri audacity e inserisci all'inizio e alla fine della predica i jingle di introduzione e di conclusione, li trovi nella sezione <strong>Intro - Outro</strong> di questo sito. 
+            <br>Infine esporta nuovamente l'audio definitivo dell'episodio.
             <h3>Squadra Spotify 🎧 - Caricamento episodio su canale Spotify</h3>
             <p>Una volta che l'audio è sistemato, ti occuperai di caricare il nuovo episodio sullo show <strong>Parola dal cielo | AdiGallarate</strong> del canale spotify della chiesa.</p>
             <p>Per creare il nuovo episodio accedi a 
@@ -107,8 +116,8 @@
     </div>
 
     <script>
-      const API_URL = "https://9ceha3vzh5.execute-api.eu-south-1.amazonaws.com/link";
-      //const API_URL = "http://localhost:8093/link";
+      //const API_URL = "https://9ceha3vzh5.execute-api.eu-south-1.amazonaws.com/link";
+      const API_URL = "http://localhost:8093/link";
 
       async function login() {
         document.getElementById("error").innerText = "";
@@ -140,6 +149,19 @@
         }
       }
 
+      const introOutroFiles = [
+        {
+          folder: 'audio',
+          file: 'adigallarate - intro - music + mari - normalized.mp3',
+          url: 'audio/adigallarate - intro - music + mari - normalized.mp3'
+        },
+        {
+          folder: 'audio',
+          file: 'adigallarate - outro - music + luca - normalized.mp3',
+          url: 'audio/adigallarate - outro - music + luca - normalized.mp3'
+        }
+      ];
+
       function showFiles(files) {
         // Nasconde la sezione login
         document.getElementById("loginSection").classList.add("hidden");
@@ -148,13 +170,23 @@
 
         // Popola la lista dei file
         populateFileList(files);
+        populateIntroOutroList();
         
         // Assicurati che la tab "files" sia attiva di default
         showTab('files');
       }
 
+      function populateIntroOutroList() {
+        populateList(introOutroFiles, 'introOutroAudioList');
+      }
+
       function populateFileList(files) {
-        const list = document.getElementById("fileList");
+        populateList(files, 'fileList');
+      }
+
+      function populateList(files, listId) {
+        const list = document.getElementById(listId);
+        if (!list) return;
         list.innerHTML = "";
 
         // Mappa estensioni a icone FontAwesome
@@ -193,7 +225,8 @@
           const a = document.createElement("a");
           a.href = f.url;
           a.target = "_blank";  // Apre in nuova scheda per scaricare
-          a.innerText = `${f.folder}/${f.file}`;
+          a.download = f.file;
+          a.innerText = f.file;
 
           li.appendChild(icon);
           li.appendChild(a);
