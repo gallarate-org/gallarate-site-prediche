@@ -66,8 +66,16 @@
             <br>Nella stessa cartella controlla sul file <strong>main.log</strong> le fasi di avanzamento (conversione WAV - MP3, caricamento in cloud) fino a che viene stampata una riga di testo simile a "Script completato".
             <br>Il file è quindi disponibile nella sezione "Audio Prediche" di questo sito.</p>
             <h3>Squadra Spotify 🎧 - Scaricamento audio + editing</h3>
-            <p>Il team Spotify si occuperà di scaricare l'audio della predica, editarlo e caricarlo su Spotify. Trovi l'audio dell'ultima predica nella sezione "Audio Prediche" di questo sito. 
-            <p>Per modificare l'audio prima della pubblicazione, usa un tool di editing audio gratuito e semplice come  
+            <p>Il team Spotify si occuperà di scaricare l'audio della predica, editarlo e caricarlo su Spotify. Trovi l'audio dell'ultima predica nella sezione "Audio Prediche" di questo sito.
+            <div class="info-box">
+              <i class="fas fa-exclamation-circle info-box-icon"></i>
+              <div class="info-box-content">
+                <p><strong>Nota: </strong>Se per qualsiasi motivo la predica non risulta disponibile, puoi scaricare la Live youtube usando uno strumento come
+                  <a href="https://notube.link/" class="clickable-link">notube</a>
+                </p>
+              </div>
+            </div>
+            <p>Per modificare l'audio prima della pubblicazione, usa un tool di editing audio gratuito e semplice come
             <a href="https://www.audacityteam.org/" class="clickable-link">
               <img src="https://www.audacityteam.org/_astro/Audacity_Logo.DK8H7nvr.svg" alt="" style="height:18px;vertical-align:middle;margin-right:4px">
               Audacity
@@ -117,7 +125,7 @@
 
     <script>
       const API_URL = "https://9ceha3vzh5.execute-api.eu-south-1.amazonaws.com/link";
-      //const API_URL = "http://localhost:8093/link";
+      // const API_URL = "http://localhost:8093/link";
 
       async function login() {
         document.getElementById("error").innerText = "";
